@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: uniloop
+  datasource:
+    # Create the database first:  CREATE DATABASE uniloop;
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/uniloop}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+
+uniloop:
+  jwt:
+    # Use a long random string (>= 32 chars) in real deployments
+    secret: ${JWT_SECRET:change-this-secret-key-to-something-long-and-random-123456}
+    expiration-ms: 86400000   # 24 hours
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+  seed-demo-data: true
