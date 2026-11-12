@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://capstone-project-24bai70800-khushi.onrender.com/api/:path*"
+    }
+  ]
+}
